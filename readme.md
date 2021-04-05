@@ -85,5 +85,81 @@ There are many kinds of selector: https://css4-selectors.com/selectors/
 
 ### Specificity Introduction
 
-https://frontendmasters.com/courses/css-in-depth-v2/specificity-introduction/
+<img src="img/spec-01.svg" alt="specificity score of 0000" width=600 />
+
+### Relational Selectors & Combinators
+
+https://www.w3schools.com/css/css_combinators.asp
+
+<img src="img/image-20210405205657585.png" alt="image-20210405205657585" width=600 />
+
+Targeting with **querySelector** natively:
+
+```javascript
+var el = document.querySelector('#bar');
+var chil = el.querySelectorAll('.foo');
+```
+
+And we can remove and add classes with **classList.add** and **classList.remove**
+
+### Attribute Selectors
+
+**element[attribute]** - Select elements containing the named attribute with any value
+
+```css
+img[alt] {}
+	<img src="image.jpg" alt="accessible">
+	/* <img src="image.jpg" alt="inaccessible"> */ 
+form [type] {}
+	<input type=date>
+	/* <select> */
+```
+
+In addition:
+
+**element[attritube = "val"]** - matches the exact value
+
+**element[attribute |=  "val"]** - matches value + anything after it
+
+^ useful for languages
+
+```css
+p[lang|="en"]{/* <p lang="en-us">  <p lang="en-uk"> */ }
+```
+
+... and more:
+
+**element[attr ^= val]** - element whose attribute starts with val - useful for matching links
+
+```css
+a[href^=mailto] {background-image: url(emailicon.gif);}
+a[href^=http]:after {content: " (" attr(href) ")";}
+```
+
+**element[attr $= val]** - element whose attribute ends in val - e.g. tell me a link downloads a PDF by appending that info:
+
+```css
+a[href$=pdf] {background-image: url(pdficon.gif);}
+a[href$=pdf]:after {content: " (PDF)";}
+```
+
+**element[attr *= val]** - match attribute anywhere 
+
+Case insensitivity, add `i` - only relevant if attr val is case sensitive
+
+```css
+E[foo="bar" i]
+```
+
+```css
+input[type="checkbox" i]
+```
+
+https://codepen.io/estelle/pen/lEGev
+
+### Attribute Selectors Recap
+
+https://frontendmasters.com/courses/css-in-depth-v2/attribute-selectors-recap/
+
+
 
