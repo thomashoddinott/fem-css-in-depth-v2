@@ -1,3 +1,5 @@
+My notes from: https://frontendmasters.com/courses/css-in-depth-v2/
+
 ### Intro
 
 https://estelle.github.io/cssmastery/intro/index.html#slide1
