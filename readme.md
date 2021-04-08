@@ -159,7 +159,90 @@ https://codepen.io/estelle/pen/lEGev
 
 ### Attribute Selectors Recap
 
-https://frontendmasters.com/courses/css-in-depth-v2/attribute-selectors-recap/
+play around with the examples: https://estelle.github.io/cssmastery/selectors/#slide28
 
+e.g.
 
+<img src="img/image-20210408092821725.png" alt="image-20210408092821725" width=600 />
+
+### User Interface Selectors
+
+e.g. if there's a *checked* checkbox, make it red.
+
+```css
+input[type=checkbox]:checked + label {
+    color: red;
+}
+```
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+```css
+:default
+:valid
+:invalid
+
+:required
+:optional
+
+:in-range
+:out-of-range
+
+:read-only
+:read-write
+
+:placeholder-shown
+
+:user-error
+/* or */
+:user-invalid
+```
+
+e.g.
+
+<img src="img/image-20210408093552449.png" alt="image-20210408093552449" width=600/>
+
+If you know your HTML attributes CSS can become very powerful and take up a lot of the work you had JS doing before.
+
+### Structural Selectors
+
+```css
+:root
+:empty
+:blank
+:nth-child()
+:nth-last-child()
+:first-child*
+:last-child
+:only-child
+:nth-of-type()
+:nth-last-of-type()
+:first-of-type
+:last-of-type
+:only-of-type
+```
+
+- Target elements on the page based on their relationships to other elements int the DOM
+- Updates dynamically if page updates
+- Reduced need for extra markup, classes and IDs
+
+e.g. https://estelle.github.io/cssmastery/selectors/files/04_firstlastonly.html try these out:
+
+```css
+body div:first-child { color: hsl(205, 87%, 50%); text-decoration: underline;}
+```
+
+```css
+body :last-child { color: hsl(205, 87%, 50%); text-decoration: underline;}
+```
+
+```css
+body :last-of-type { color: hsl(205, 87%, 50%); text-decoration: underline;}
+```
+
+^ the prepended `body` is a bug in these examples
+
+### nth-of-type Structural Selectors
+
+https://frontendmasters.com/courses/css-in-depth-v2/nth-of-type-structural-selectors/
 
