@@ -244,5 +244,114 @@ body :last-of-type { color: hsl(205, 87%, 50%); text-decoration: underline;}
 
 ### nth-of-type Structural Selectors
 
-https://frontendmasters.com/courses/css-in-depth-v2/nth-of-type-structural-selectors/
+e.g.
+
+```css
+:nth-child(3n)
+:nth-last-child(odd)
+:nth-of-type(5)
+:nth-last-of-type(3n+1) 
+```
+
+`nth-of-type`
+
+```css
+:nth-of-type(even)
+:nth-of-type(odd)
+:nth-of-type(an+b)
+```
+
+https://estelle.github.io/selectors/#slide33 (older slides - not broken)
+
+<img src="img/image-20210413084830640.png" alt="image-20210413084830640" width=600 />
+
+### Structural Selectors Demo
+
+https://estelle.github.io/cssmastery/selectors/#slide43
+
+### Root, Empty & Blank
+
+```css
+:root	
+```
+
+Selects the document root, which is `<html>`
+
+```css
+E:empty
+```
+
+```css
+<E/>
+<E></E>
+<E><!-- this is a comment --></E>
+<E title="this is an empty element"/>
+```
+
+```css
+E:blank
+```
+
+```css
+<E>   <!-- has white space -->   </E>
+```
+
+^ but not supported yet?
+
+but you can use `:-moz-whitespace-only` in firefox...
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-only-whitespace
+
+### Negation, Matching & Parent
+
+```css
+E:not(s1) /* matches any element that is not also matched by s1*/
+```
+
+```css
+div:not(.excludeMe) /* matches any div except for ones with class .excludeMe */
+```
+
+Safari Only:
+
+```css
+E:not(s1, s2)
+```
+
+```css
+div:not(.excludeMe, .excuseYou)
+```
+
+e.g.
+
+```css
+li:first-child {
+  color: blue;
+  font-weight: normal;
+  }
+li:not(:first-child) {
+  color: red;
+  font-weight:bold;
+  }
+```
+
+<img src="img/image-20210413091007149.png" alt="image-20210413091007149" width=600 />
+
+---
+
+(talking about `:matches`, `:any`, :`has` which are still experimental)
+
+https://caniuse.com/
+
+e.g. 
+
+`:has` - not supported - https://caniuse.com/?search=%3Ahas
+
+`:matches` - kind of supported - https://caniuse.com/?search=%3Amatches
+
+---
+
+### Linguistic Pseudo Classes
+
+https://frontendmasters.com/courses/css-in-depth-v2/linguistic-pseudo-classes/
 
