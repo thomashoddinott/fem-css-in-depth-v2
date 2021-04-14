@@ -355,5 +355,117 @@ e.g.
 
 ### Linguistic Pseudo Classes
 
-https://frontendmasters.com/courses/css-in-depth-v2/linguistic-pseudo-classes/
+```css
+F[attr|=val]
+
+html[lang|="en"] /* would match: en, en-us, en-uk, etc. */
+
+p:lang(en)
+```
+
+### Link, Locations & User Action
+
+`a` with an `href` attribute
+
+```css
+:link
+:visited
+```
+
+`:any-link` is the same as: `:matches(:link, :visited)`
+
+**User Action Pseudo Classes**
+
+```css
+:hover
+:active
+:focus
+```
+
+*always style `:focus`* when you style `:hover` 
+
+```css
+:focus-ring
+:focus-within
+```
+
+```css
+:drop
+:drop()
+```
+
+e.g.
+
+```css
+a:visited:hover /* hovering over a visited link can be a different style to a non-visited link - some (most) browsers do this by default? */
+
+button:active:focus
+```
+
+**Drag and drop pseudo classes**
+
+https://estelle.github.io/cssmastery/selectors/#slide60
+
+**:target**
+
+```css
+:target
+```
+
+```html
+<!-- myPage.html#anchor e.g. #slide63 = the browser knows we're on slide63 -->
+
+<div id="anchor">abc...</div>
+```
+
+```css
+div:target::fist-line {
+    font-weight: bold;
+}
+```
+
+e.g.
+
+https://estelle.github.io/cssmastery/selectors/#slide63
+
+<img src="img/image-20210414095952068.png" alt="image-20210414095952068" width=600 />
+
+"Whatever tab is selected, make it white, otherwise make it gray. Whatever tab is selected, bring it to the front of the page (z-index) and push the others back."
+
+**:scope**
+
+Matches elements that are a reference point for selectors to match against. (Doesn't exist yet...)
+
+**Grid-structural selectors**
+
+Column combinator
+
+```css
+E || F
+```
+
+```css
+col.selected || td {
+    /* matches all cells within the column's scope */
+}
+```
+
+```css
+:nth-column(An+B)
+:nth-last-column(An+B)
+```
+
+**Time dimensional**
+
+```css
+:current
+:future
+:past
+```
+
+https://css4-selectors.com/selector/css4/time-dimensional-pseudo-class/ (again, doesn't exist yet... so what's the point putting all this into the presentation???)
+
+### Specificity 
+
+https://frontendmasters.com/courses/css-in-depth-v2/specificity/
 
