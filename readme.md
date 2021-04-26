@@ -467,5 +467,114 @@ https://css4-selectors.com/selector/css4/time-dimensional-pseudo-class/ (again, 
 
 ### Specificity 
 
-https://frontendmasters.com/courses/css-in-depth-v2/specificity/
+<img src="img/readme.md" alt="specifishity chart" width=600 />
 
+Try to avoid **div**itis and **ID**itis (hence the shark as it isn't as cute as the plankton or fish)
+
+inline styles = BP oil tanker (very bad)
+
+`!important` - never use in production. Acceptable as a debugging tool: "Why isn't my CSS working? OK let's see what it should be like with `!important`, etc."
+
+**Example: Hacking Specificity with IDs**
+
+```css
+#TheirWidget {background-color: blue !important;}
+#3rdPartyWidget {background-color: white;}
+```
+
+```css
+#TheirWidget#TheirWidget {background-color: blue ;}
+#3rdPartyWidget {background-color: white;}
+```
+
+Always comment what you're doing when you play with hacks like this.
+
+**Example: Worst case scenario hack of !important**
+
+```css
+li {
+    color: white !important;
+}
+```
+
+can be overridden with an animation!
+
+```css
+li {
+    animation: color forwards;
+	}
+@keyframes color {
+    100% { color: #f50; }
+}
+```
+
+### Introduction to Pseudo-Elements
+
+```css
+::first-line
+::first-letter
+::selection (not in spec)
+::before
+::after
+```
+
+**pseudo-classes** select elements that already exist.
+
+**pseudo-elements** create faux elements you can style
+
+Example:
+
+```css
+p:first-of-type::first-letter {
+	position: relative;
+	top: 8px;
+	float: left;
+	font-size: 3em;
+	line-height: 1;
+	color: hsl(205, 87%, 50%);
+	padding: 0 4px 2px 0;
+	font-weight: bold;
+}
+```
+
+<img src="img/image-20210426111837110.png" alt="image-20210426111837110" width=300 />
+
+### Before, After and Generated Content
+
+e.g.
+
+```css
+p:before {
+	content: '- before';	
+}
+p:after {
+	content: '- after';	
+}
+```
+
+```html
+<p> the quick brown fox ... </p>
+```
+
+--> **- before the quick brown fox ... - after**
+
+---
+
+**additional pseudo-elements**
+
+```css
+::selection
+::inactive-selection
+::spelling-error
+::grammar-error
+```
+
+**other pseudo-elements**
+
+```css
+::marker
+::placeholder
+::content
+```
+
+https://frontendmasters.com/courses/css-in-depth-v2/selection-more-pseudo-elements/
