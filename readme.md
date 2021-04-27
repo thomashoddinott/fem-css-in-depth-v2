@@ -1,5 +1,7 @@
 My notes from: https://frontendmasters.com/courses/css-in-depth-v2/
 
+**todo: add the urls for each slide deck at the start of each heading2**
+
 ### Intro
 
 https://estelle.github.io/cssmastery/intro/index.html#slide1
@@ -577,4 +579,69 @@ p:after {
 ::content
 ```
 
-https://frontendmasters.com/courses/css-in-depth-v2/selection-more-pseudo-elements/
+### Selection & More Pseudo-elements
+
+You might want to disable `::selection` when on mobile (and sometimes desktop) apps when the user clicks over something for too long. The native feature might start to show you a copy/paste dialog, which you want to override. e.g. an app with drag and drop ???
+
+```css
+.thisSlide {
+    -webkit-tap-highlight-color: #bada55;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+```
+
+There are lots of browser-specific elements (differences between browser scroll bars, and so on...)
+
+"Shadow DOM"
+
+e.g.
+
+```css
+.scrollbar ::-webkit-scrollbar {
+	margin-right: 5px;
+    background-color: #f36;
+    border-radius: 6px;
+    width: 12px;
+}
+/* etc. */
+```
+
+If you want to find out what's going on behind the scenes in your browser, the dev tools (f12) will reveal all.
+
+### Before and After
+
+continued...
+
+before/after are **within** the target:
+
+<img src="img/image-20210427092050272.png" alt="image-20210427092050272" width=600 />
+
+### Counters
+
+```css
+body {counter-reset: sections;}
+header h1.sectiontitle:before{
+		content: "Part " counter(sections) ": ";
+    	counter-increment: sections;
+}
+```
+
+^ Reset the counter (called sections) every time we reach a section. +1 every time we hit a `<h1>`. Saves us having to put everything in an ordered list `<ol>` to count it. Need to explicitly say `counter-increment`. 
+
+### Quotes & Attributes
+
+https://frontendmasters.com/courses/css-in-depth-v2/quotes-attributes/
+
+
+
+
+
+
+
+
+
+
+
+
+
