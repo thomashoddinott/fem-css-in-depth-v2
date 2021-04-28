@@ -631,17 +631,64 @@ header h1.sectiontitle:before{
 
 ### Quotes & Attributes
 
-https://frontendmasters.com/courses/css-in-depth-v2/quotes-attributes/
+```css
+/* Specify pairs of quotes for two levels in two languages */
+:lang(en) > q { quotes: '"' '"' "'" "'" }
+:lang(fr) > q { quotes: "«" "»" "’" "’" }
 
+/* Insert quotes before and after Q element content */
+q::before { content: open-quote }
+q::after  { content: close-quote }
+```
 
+example:
 
+<img src="img/image-20210428085740573.png" alt="image-20210428085740573" width=600 />
 
+### Counters Review
 
+[example](https://estelle.github.io/cssmastery/generated/#slide17)
 
+```css
+body {counter-reset: invalidCount;}
+:invalid {
+  background-color: pink;
+  counter-increment: invalidCount;
+}
+p:before {
+  content: "You have " 
+      counter(invalidCount) " invalid entries";
+}
+```
 
+<img src="img/image-20210428090627935.png" alt="image-20210428090627935" width=400 />
 
+[another example](https://estelle.github.io/cssmastery/generated/#slide18)
 
+```css
+body { counter-reset: pagecount; }
+p { 
+	counter-increment: pagecount;
+}
+p:after { color: magenta;
+  content: " " counter(pagecount);
+}
+```
 
+<img src="img/image-20210428090740211.png" alt="image-20210428090740211" width=200 />
 
+### Images
 
+<img src="img/image-20210428091450486.png" alt="image-20210428091450486" width=600 />
 
+### Strings & Special Characters
+
+<img src="img/image-20210428092042461.png" alt="image-20210428092042461" width=600 />
+
+<img src="img/image-20210428092109111.png" alt="image-20210428092109111" width=600 />
+
+<img src="img/image-20210428092449797.png" alt="image-20210428092449797" width=600 />
+
+### Icon Accessibility 
+
+https://frontendmasters.com/courses/css-in-depth-v2/icon-accessibility/
