@@ -691,4 +691,86 @@ p:after { color: magenta;
 
 ### Icon Accessibility 
 
-https://frontendmasters.com/courses/css-in-depth-v2/icon-accessibility/
+e.g.
+
+```css
+[class|='material-icons']:after { 
+  content: "\e84e";
+  content: "bed";
+  color: blue;
+}
+.material-icons {
+  font-size: 3rem;
+}
+```
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- ... -->
+<p class="material-icons">accessibility<p>
+```
+
+<img src="img/image-20210504095713802.png" alt="image-20210504095713802" width=100 />
+
+needs `-webkit-font-feature-settings: 'liga';`
+
+### Design Elements
+
+Thought bubbles example
+
+<img src="img/image-20210504100358195.png" alt="image-20210504100358195" width=600 />
+
+see this for more: https://css-tricks.com/the-shapes-of-css/
+
+and more ... https://estelle.github.io/cssmastery/generated/#slide38
+
+### Media Type, Screen Size & Resolution
+
+https://estelle.github.io/cssmastery/media/#slide1
+
+We use **media queries** to change the presentation layer depending on what screen (browser, actually -- called the viewport) we're viewing from (size in pixels, orientation, etc.).
+
+e.g.
+
+```css
+@media screen and (max-width: 600px) {
+  #presentation {
+    background: red;
+      /* turn the background red when the 			 screen is < 600 px wide */
+  }
+}
+@media screen and (orientation: portrait) {
+  #presentation {
+    background: yellow;
+    /* turn the background yellow when the 		   screen is taller than it is wide   		   (portrait) */
+  }
+/* 1st query overrides 2nd? */
+```
+
+Media Features: https://estelle.github.io/cssmastery/media/#slide9
+
+**Resolution Units**
+
+- dpi: dots per inch
+- dpcm: dots per cm (1 dpcm ~ 2.54 dpi)
+- dppx: dots per pixel (1 dppx = 96 dpi)
+
+Efficient to serve higher/lower quality images depending on the users' screen resolution. E.g. When a user has a high DPI screen, serve a high resolution image.
+
+e.g.
+
+```css
+@media (-webkit-min-device-pixel-ratio: 2), /* Safari */
+       (min-resolution: 192dpi) /* Everyone else */ 
+		{
+    		/* CSS */
+		}
+```
+
+Images are typically served at 72, maybe 96 dpi. Sometimes we might go up to 300 though. Maybe we're printing an image? Or we're doing something that needs high quality? 
+
+Demo: https://estelle.github.io/cssmastery/media/files/mediaqueries.html
+
+### Syntax & Punctuation
+
+https://frontendmasters.com/courses/css-in-depth-v2/syntax-punctuation/
