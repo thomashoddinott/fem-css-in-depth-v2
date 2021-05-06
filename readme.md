@@ -773,4 +773,72 @@ Demo: https://estelle.github.io/cssmastery/media/files/mediaqueries.html
 
 ### Syntax & Punctuation
 
-https://frontendmasters.com/courses/css-in-depth-v2/syntax-punctuation/
+`only` leaves out older browsers
+
+```css
+media="only print and (color)"
+```
+
+`and` - both parts must be true
+
+```css
+media="only screen and (orientation: potrait)"
+```
+
+`not` - if untrue
+
+```css
+media="not screen and (color)"
+```
+
+A `,` separates selectors - any part can be true
+
+```css
+media="print, screen and (min-width: 480px)"
+```
+
+`<` , `>` , and `>=` are coming soon. Won't have to do `min-width` and `max-width` all the time.
+
+### Browser Capability @supports
+
+`@supports` checks browser can do something before trying it
+
+```css
+@supports (display: flex){
+	/* ... CSS stuff if the browser can do flex box */
+}
+```
+
+https://codepen.io/estelle/pen/ihsny
+
+e.g. https://estelle.github.io/cssmastery/media/files/typowidth.html
+
+```css
+@media screen and (min-width: 38em){
+  #content { padding: 0 21%; }
+}
+```
+
+|                    small screen (< 38em)                     |                    larger screen (> 38em)                    |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| <img src="img/image-20210506100328120.png" alt="image-20210506100328120" width=600 /> | <img src="img/image-20210506100245052.png" alt="image-20210506100245052" width=600 /> |
+
+^ puts in a margin of 21% when we're on a larger screen.
+
+### Use Cases: Hyphenations
+
+```css
+@media screen and (max-width: 38em){
+  #content { padding: 0 21%; }
+}
+ p {
+  hyphens: auto;
+}
+```
+
+^ useful when we're on a small screen and don't long words to break onto a new line.
+
+
+
+ 
+
