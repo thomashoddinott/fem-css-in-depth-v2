@@ -1,6 +1,6 @@
 My notes from: https://frontendmasters.com/courses/css-in-depth-v2/
 
-**todo: add the urls for each slide deck at the start of each heading2**
+Slides: https://estelle.github.io/cssmastery/#slide1
 
 ### Intro
 
@@ -837,6 +837,77 @@ e.g. https://estelle.github.io/cssmastery/media/files/typowidth.html
 ```
 
 ^ useful when we're on a small screen and don't long words to break onto a new line.
+
+### Use Cases: Columns
+
+e.g.
+
+```css
+column-count: 1;
+column-width: 10em;
+column-rule: 1px solid #bbb;
+column-gap: 2em;
+```
+
+Have a play around to learn what this does: https://estelle.github.io/cssmastery/media/#slide26
+
+It's nice to use columns with media queries, and we can do that without using `@media`:
+
+```css
+#content {columns: 18em 3;}
+h1 {column-span: all;}
+```
+
+Each column must be at least 18ems wide. If there is space enough for 3, render 3. If are screen is for example only 40ems wide, for example, then generate just 2 columns. etc.
+
+https://estelle.github.io/cssmastery/media/#slide27
+
+### Use Cases: SVG
+
+With SVGs, the width is the width **of the container** of the SVG.
+
+https://estelle.github.io/cssmastery/media/files/circlesvg.html
+
+### Colours: RGB, HSL & HEX
+
+These are all the same:
+
+```css
+  color: white;
+  color: #fff;
+  color: #FFFFFF;
+  color: #FFFFFFFF;
+  color: rgb(255,255,255);
+  color: rgb(100%,100%,100%);
+  color: rgba(255,255,255,1);
+  color: rgba(100%,100%,100%, 1);
+  color: hsl(0, 100%, 100%);
+  color: hsla(0, 100%, 100%, 1);
+```
+
+There are lots of colour name keywords: https://estelle.github.io/cssmastery/colors/#slide4 ...
+
+`currentcolor` follows the cascade to apply the color:
+
+e.g. https://estelle.github.io/cssmastery/colors/#slide11
+
+<img src="img/image-20210510110418338.png" alt="image-20210510110418338" width=600 />
+
+### Opacity vs. Alpha Transparency
+
+https://frontendmasters.com/courses/css-in-depth-v2/opacity-vs-alpha-transparency/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
