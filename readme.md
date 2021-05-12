@@ -895,21 +895,198 @@ e.g. https://estelle.github.io/cssmastery/colors/#slide11
 
 ### Opacity vs. Alpha Transparency
 
-https://frontendmasters.com/courses/css-in-depth-v2/opacity-vs-alpha-transparency/
+You can also do stuff like adding shadows to boxes, text, ...
+
+https://estelle.github.io/cssmastery/colors/#slide16
+
+```css
+.solid { box-shadow: -10px 10px #999;
+         text-shadow: 0 21px 1px #999;}
+```
+
+### Appearance
+
+Best to use native features. People expect stuff to look the same across the internet. For example, a radio button should act like a radio button. If you must play, use `-webkit-appearance` - https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
+
+### Goal of Flexbox & Demos
+
+Flexbox to the rescue! https://estelle.github.io/cssmastery/flexbox/#slide1
+
+It solved the common problem of lining columns up nicely.
+
+<img src="img/image-20210511111302260.png" alt="image-20210511111302260" width=600 />
+
+<img src="img/image-20210511111341112.png" alt="image-20210511111341112" width=600 />
+
+Can make sticky header/footers with Flexbox: https://estelle.github.io/cssmastery/flexbox/#slide8
+
+One or the other. Otherwise won't look good on mobile.
+
+### Browser Support and Overview
+
+Flexbox is very widely supported. https://caniuse.com/?search=flexbox
+
+Nice example: https://estelle.github.io/cssmastery/flexbox/#slide13 (remove the `.` before the `ul` s)
+
+<img src="img/image-20210511112735310.png" alt="image-20210511112735310" width=600 />
+
+```css
+/* Even this is enough to make it look half decent */
+ul { display: flex; }
+ul > li { flex: 1; }
+```
+
+Another one: https://estelle.github.io/cssmastery/flexbox/#slide14
+
+```css
+body {
+  display: flex;
+  flex-flow: column;
+}
+main {
+  display: flex;
+  flex: 1;
+}
+article {
+  flex: 1;
+}
+nav {
+  order: -1;
+}*/
+```
+
+<img src="img/image-20210511113035008.png" alt="image-20210511113035008" width=600 />
+
+### Setup Flex Container and Items
+
+**Components**:
+
+1. Creation: display
+2. Direction: flex-flow (flex-direction, flex-wrap)
+3. Alignment: justify-content, align-items, align-self, align-content
+4. Ordering: order
+5. Flexibility: flex (flex-grow, flex-shrink, flex-basis)
+
+**Steps**:
+
+1. Add `display: flex`; to the parent of the elements to be flexed
+2. Set `flex-direction` to horizontal or vertical
+3. Set `flex-wrap` to control wrap direction
+
+The `display` property has many other values: https://estelle.github.io/cssmastery/flexbox/#slide19
+
+Flex items:
+
+1. **Flex is inherited by child nodes**
+2. Generated content is also a flex item
+3. Anonymous flex items (???) => non-empty text nodes
+
+Not flex items:
+
+1. `::first-line` & `::first-letter`
+2. white space
+
+Kind of:
+
+1. absolutely/fixed positioned elements
+
+Flex impacts certain CSS properties: https://estelle.github.io/cssmastery/flexbox/#slide25
+
+### Understanding Flexbox
+
+**flex-direction**
+
+`row` by default:
+
+<img src="img/image-20210512102233408.png" alt="image-20210512102233408" width=600 />
+
+and there's also `row-reverse`
+
+`column`: 
+
+<img src="img/image-20210512102318569.png" alt="image-20210512102318569" width=600 />
+
+... and `column-reverse` 
+
+flex takes care of (how???) internationalisation: right-to-left languages (arabic, hebrew, ...), top-to-bottom languages (japanese, chinese - but they are often left-to-right on the web?)
+
+https://estelle.github.io/cssmastery/flexbox/#slide29
+
+**flex-wrap**
+
+https://estelle.github.io/cssmastery/flexbox/#slide31
+
+`nowrap`, `wrap`, `wrap-reverse`
+
+e.g.
+
+<img src="img/image-20210512111958878.png" alt="image-20210512111958878" width=600 />
+
+e.g.
+
+<img src="img/image-20210512111837537.png" alt="image-20210512111837537" width=600 />
+
+**flex-flow**
+
+is a shorthand for `flex-direction` & `flex-wrap`
+
+e.g. https://estelle.github.io/cssmastery/flexbox/#slide34
+
+<img src="img/image-20210512112436520.png" alt="image-20210512112436520" width=600 />
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow
+
+### Flex Container Properties
+
+but wait, there's more!
+
+**justify-content** - what to do about extra (or lack of) space between items?
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
+
+e.g. https://estelle.github.io/cssmastery/flexbox/#slide40
+
+<img src="img/image-20210512112953231.png" alt="image-20210512112953231" width=600 />
+
+**align-items**
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+
+https://estelle.github.io/cssmastery/flexbox/#slide42
+
+<img src="img/image-20210512113334252.png" alt="image-20210512113334252" width=600 />
+
+what happens if one of the items *disappears*? 
+
+<img src="img/image-20210512114125240.png" alt="image-20210512114125240" width=600 />
+
+ **align-content**
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
+
+Isn't this `justify-content` ? No, that only applies to multi-line containers (???)
+
+e.g. https://estelle.github.io/cssmastery/flexbox/#slide45
+
+<img src="img/image-20210512114549121.png" alt="image-20210512114549121" width=600 />
+
+### Flex Item Properties
+
+You can control flex item individually. This is useful for overriding stuff.
+
+**align-self** - https://developer.mozilla.org/en-US/docs/Web/CSS/align-self
+
+**order** - https://developer.mozilla.org/en-US/docs/Web/CSS/order
+
+useful for sorting out niggles - e.g. https://estelle.github.io/cssmastery/flexbox/#slide54
+
+**(reminder of cross axis and main axis):**
+
+<img src="img/9Oxw7.png" alt="In CSS Flexbox, why are there no &quot;justify-items&quot; and &quot;justify-self&quot;  properties? - Stack Overflow" width=600 />
+
+### Flexibility & Shorthand
+
+https://frontendmasters.com/courses/css-in-depth-v2/flexibility-shorthand/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 
