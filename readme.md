@@ -1086,7 +1086,110 @@ useful for sorting out niggles - e.g. https://estelle.github.io/cssmastery/flexb
 
 ### Flexibility & Shorthand
 
-https://frontendmasters.com/courses/css-in-depth-v2/flexibility-shorthand/
+`flex-grow` - How to divide the extra space.
+
+`flex-shrink` - How to shrink if there's not enough room.
+
+`flex-basis` - The starting size before free space is distributed.
+
+`flex` shorthand property - e.g. https://estelle.github.io/cssmastery/flexbox/#slide58
+
+<img src="img/image-20210513103442103.png" alt="image-20210513103442103" width=600 />
+
+^ even items are the width of the text.  Odd items flex to make up the space.
+
+`flex-basis` demos: [1](https://estelle.github.io/cssmastery/flexbox/#slide60), [2](https://estelle.github.io/cssmastery/flexbox/#slide61)
+
+### Overview & Semantics
+
+https://estelle.github.io/cssmastery/tables/#slide1
+
+Tables used to be used for layout. Now we use other things (flexbox, grid). 
+
+Tables are still important for presenting data. For example, what if we need to sort the data?
+
+Structure of a table:
+
+```html
+<table>
+  <caption>Table Caption</caption>
+  <colgroup>
+    <col/>
+  </colgroup>
+  <thead></thead>
+  <tbody></tbody>
+  <tfoot></tfoot> <!-- not always needed -->
+</table>
+```
+
+-->
+
+```html
+<table>
+  <caption></caption>
+  <colgroup>
+    <col/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+    </tr>
+  </tfoot>
+</table>
+```
+
+### Caption
+
+Specifies title of table. Always 1st child of `<table>`. Improves accessibility. 
+
+You can put the caption on the top or bottom (in all browsers): https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side
+
+experimental: left, right, top-outside, bottom-outside
+
+e.g. https://estelle.github.io/cssmastery/tables/#slide8
+
+^ can be styled:
+
+```css
+table {
+    caption-side: top; 
+}
+caption {
+    font-weight: bold;
+    color: red;
+    padding-bottom: 40px
+}
+```
+
+<img src="img/image-20210513105354122.png" alt="image-20210513105354122" width=600 />
+
+### Table Borders & Spacing
+
+```css
+table, th, td {
+    border: 1px solid;
+}
+```
+
+<img src="img/image-20210513105721334.png" alt="image-20210513105721334" width=600 />
+
+`border-collapse` - https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse
+
+`border-spacing` - https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing
+
+### Other Table Properties
+
+https://frontendmasters.com/courses/css-in-depth-v2/other-table-properties/
 
 
 
