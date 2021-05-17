@@ -1189,7 +1189,153 @@ table, th, td {
 
 ### Other Table Properties
 
-https://frontendmasters.com/courses/css-in-depth-v2/other-table-properties/
+`empty-cell` - https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells
+
+`vertical-align` - https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align
+
+### Styling a Table
+
+https://estelle.github.io/cssmastery/tables/#slide23
+
+`<col>` syntax:
+
+```html
+<colgroup>
+    <col class="week"/>
+    <col class="player"/>
+    <col class="club"/>
+    <col class="stat"/>
+</colgroup>
+```
+
+```css
+col.week {background-color: pink}
+col.player {font-size: 2em;} /* doesn't work - there is limited styling on cols */
+col.club {}
+col.stat {background-color: gold}
+/* tr {background-color: slategrey} */ 
+/* ^ overrides above */
+
+tr:hover {background-color: slategrey}
+/* nice effect using override */
+```
+
+<img src="img/image-20210517111529291.png" alt="image-20210517111529291" width=600 />
+
+try it out: https://estelle.github.io/cssmastery/tables/files/play.html
+
+```css
+td, th {padding: 10px 5px 10px 10px;}
+table {border: 1px solid; border-collapse: collapse;}
+col.week {}
+col.player {background-color: #efefef;}
+col.club {}
+col.stat {}
+caption {padding: 5px 0 10px; font-weight: bold;}
+thead tr th {border-bottom: 1px solid; background-color: #dedede;}
+tbody {}
+tbody tr:nth-of-type(even) {background-color: #00000010;}
+tbody tr:hover {background-color: lightblue;}
+```
+
+<img src="img/image-20210517112438446.png" alt="image-20210517112438446" width=600 />
+
+### Flexbox vs. Grids
+
+https://estelle.github.io/cssmastery/grid/#slide1
+
+What if you have this in **Flexbox**:
+
+<img src="img/image-20210517112903446.png" alt="image-20210517112903446" width=600 />
+
+**Grid** solves this problem:
+
+```css
+ol { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;}
+li:last-of-type { display: none; }
+```
+
+<img src="img/image-20210517112943821.png" alt="image-20210517112943821" width=600 />
+
+**Grid** can also do stuff like this:
+
+```css
+ol {  display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 20px;}
+li:nth-of-type(4) { grid-column: auto / span 2; background-color: pink; } 
+```
+
+<img src="img/image-20210517113130950.png" alt="image-20210517113130950" width=600 />
+
+https://estelle.github.io/cssmastery/grid/#slide5 and so on...
+
+There's a lot in **Grid**. It's worthy of its own course! https://frontendmasters.com/courses/css-grids-flexbox/
+
+**Terminology**: https://estelle.github.io/cssmastery/grid/#slide6
+
+Similarly to Flexbox, Grid is widely supported: https://caniuse.com/?search=grid
+
+### Display Property
+
+`display: grid | inline grid`
+
+e.g. https://estelle.github.io/cssmastery/grid/#slide12
+
+```css
+div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style-type: none;
+}
+```
+
+<img src="img/image-20210517114842026.png" alt="image-20210517114842026" width=600 />
+
+`fr` unit - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#the_fr_unit
+
+### Columns & Rows
+
+e.g.
+
+```css
+grid-template-columns: 
+  150px 150px 150px;
+  repeat(3, 150px);
+  275px repeat(2, 150px);
+  100px repeat(2, 1fr) 2fr;
+```
+
+```css
+grid-template-rows: 
+  150px 150px 150px;
+  repeat(3, 150px);
+  275px repeat(2, 150px);
+  100px 1fr 2fr;
+```
+
+Grid can use mixed units!
+
+You can name grid lines:
+
+```css
+grid-template-columns: 
+  [start] 150px 150px 150px [end];
+/* 
+| start | | | end | 
+*/
+```
+
+### Fraction Unit & Repeat Notation
+
+try it out: https://estelle.github.io/cssmastery/grid/#slide17
+
+`fr` - describes a fraction of the **available** space
+
+### Adding Gutters & Exercise
+
+https://frontendmasters.com/courses/css-in-depth-v2/adding-gutters-exercise/
 
 
 
