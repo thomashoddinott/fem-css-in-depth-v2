@@ -1335,7 +1335,256 @@ try it out: https://estelle.github.io/cssmastery/grid/#slide17
 
 ### Adding Gutters & Exercise
 
-https://frontendmasters.com/courses/css-in-depth-v2/adding-gutters-exercise/
+https://estelle.github.io/cssmastery/grid/#slide21
+
+### Exercise Walkthrough
+
+exercise: https://estelle.github.io/cssmastery/grid/files/doit1.html
+
+```css
+ol { 
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: 100px 100px 100px 100px; /* same as above */
+  list-style-type: none; grid-gap: 20px;
+}
+li:before {
+  content: '';
+}
+```
+
+### Positioning Grid Items
+
+Shorthands:
+
+```css
+.myItem {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 5;
+  }
+```
+
+-->
+
+```css
+  .myItem {
+    grid-row: 2 / 4;
+    grid-column: 2 / 5;
+  }
+```
+
+-->
+
+```css
+.myItem {
+    grid-area: 2 / 2 / 4 / 5;
+    /* 
+    	start / start / end / end
+    */
+  }
+```
+
+https://estelle.github.io/cssmastery/grid/#slide26
+
+<img src="img/image-20210518101142856.png" alt="image-20210518101142856" width=600 />
+
+### Grid Column & Row Naming
+
+(skipped)
+
+### Item Properties & Holy Grail Layout
+
+**Grid Item Properties**
+
+```css
+grid-column-start
+grid-column-end
+grid-column
+
+grid-row-start
+grid-row-end
+grid-row
+
+grid-area
+```
+
+```css
+justify-self
+align-self
+```
+
+In Flexbox, there's no way to get the `4` to span vertically over two lines. It grows over one line.
+
+<img src="img/image-20210518102743782.png" alt="image-20210518102743782" width=600 />
+
+Grid says, put this exactly here, and make everything else fit around it.
+
+**Holy Grail Layout**
+
+```
+body {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 3em 1fr 1.5em;
+  grid-gap: 1em;
+}
+header {
+   grid-row: 1/2;
+   grid-column: 1/4;
+}
+footer {
+   grid-row: 3/4;
+   grid-column: 1/4;
+}
+style {
+   grid-row: 4/5;
+   grid-column: 1/4;
+}
+```
+
+<img src="img/image-20210518103029044.png" alt="image-20210518103029044" width=600/>
+
+### Coding the Holy Grail Layout
+
+try it out: https://estelle.github.io/cssmastery/grid/files/pagelayoutplay.html
+
+```css
+body {
+	display: grid; 
+    width: 760px; /* demo - we normally don't do this */ 
+    height: 500px; /* demo - we normally don't do this */ 
+    margin: auto;
+    grid-template-columns: 8em repeat(2, 1fr);
+    grid-template-rows: 6em 2em auto auto 2em;
+    grid-gap: 20px;
+}
+aside {
+    grid-row: 3 / 5;
+}
+article:nth-of-type(1){
+    grid-column: 2 / 4;
+}
+footer, header, nav {
+    grid-column: 1 / 4;
+}
+```
+
+<img src="img/image-20210518104838443.png" alt="image-20210518104838443" width=600 />
+
+It takes very little CSS to produce a simple Grid layout.
+
+### Named Template Areas
+
+https://estelle.github.io/cssmastery/grid/#slide33
+
+We could do this instead:
+
+```css
+body {
+  display: grid;
+  grid-template-areas:
+      "header header header" /* can be any name, not just html */
+      "nav article aside"
+      "footer footer footer"
+      "style style style";
+  grid-template-rows: 3em 1fr 1em;
+  grid-template-columns: 100px 1fr 100px;
+}
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
+article {
+  grid-area: article;
+}
+aside {
+  grid-area: aside;
+}
+footer {
+  grid-area: footer;
+}
+style {
+  grid-area: style;
+}
+```
+
+### Align and Justify Items
+
+e.g. https://estelle.github.io/cssmastery/grid/#slide37
+
+```css
+.container { 
+  grid-template-columns: repeat(5, 150px);
+  justify-items: center; 
+} 
+```
+
+You shouldn't need to use `justify-items` often. It makes things look janky.
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items
+
+similarly, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+
+`place-items` combines the two - https://developer.mozilla.org/en-US/docs/Web/CSS/place-items
+
+### Align and Justify Content
+
+`justify-content`, `align-content`
+
+e.g. https://estelle.github.io/cssmastery/grid/#slide44
+
+```css
+.parent { 
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: auto;
+  place-items: stretch;
+  align-content: space-between;
+  justify-content: space-between;
+  grid-gap: 20px; 
+  background: blue;
+} 
+```
+
+<img src="img/image-20210518112835003.png" alt="image-20210518112835003" width=600 />
+
+^ unlikely that you'd want to do this, but possible!
+
+### Tracking Sizing & Auto Flow
+
+When items are placed outside the tracks defined by `grid-template-rows`, `grid-template-columns`, and `grid-template-areas`, implicit grid tracks are added. These properties size those tracks:
+
+`grid-auto-columns` - https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns
+
+`grid-auto-rows` - https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows
+
+`grid-auto-flow` - https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow
+
+Sometimes we want white space: https://estelle.github.io/cssmastery/grid/#slide49
+
+### More Grid Resources
+
+https://gridbyexample.com/
+
+https://labs.jensimmons.com/
+
+https://cssgridgarden.com/
+
+### Grid Dev Tools
+
+As for Flexbox, your browser's devtools will let you inspect and see what's going on in Grid.
+
+<img src="img/image-20210518115033242.png" alt="image-20210518115033242" width=1000 />
+
+### Background Properties & Color
+
+https://estelle.github.io/cssmastery/borders/#slide1
 
 
 
+
+
+https://frontendmasters.com/courses/css-in-depth-v2/background-properties-color/
