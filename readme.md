@@ -1583,8 +1583,126 @@ As for Flexbox, your browser's devtools will let you inspect and see what's goin
 
 https://estelle.github.io/cssmastery/borders/#slide1
 
+(intro - nothing new here)
+
+### Background Image
+
+```css
+background-image: none | <uri> | inherit
+```
+
+```css
+/* e.g. */
+background-image: url(path/aSingleImage.jpg);
+```
+
+Tips: 
+
+- make sure there's enough contrast (add drop shadow) 
+- include background color
+- don't print by default
+- not accessible - purely decorative!
+
+**multiple background-images**
+
+```css
+background-image: url(green.gif), url(blue.gif);
+```
+
+--> gets layered front to back (green on blue)
+
+`image-set()` - declare a set of images (not ready for use yet)
+
+More examples of `background-image` value types: https://estelle.github.io/cssmastery/borders/#slide13
+
+### Background Image Future
+
+(skipping)
+
+### Repeat, Attachment & Position
+
+`background-repeat` - https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat
+
+`background-attachment` - https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment
+
+`background-position` - https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
+
+### Clip, Origin & Size
+
+`background-clip` - https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
+
+`background-origin` - https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin
+
+Combine both: https://estelle.github.io/cssmastery/borders/#slide30
+
+```css
+div {
+    border: 15px dashed #707071;
+    border-radius: 5px;
+    background-color: red;
+    padding: 20px;
+    background-origin: border-box;
+    background-clip: content-box;
+}
+```
+
+<img src="img/image-20210519160030626.png" alt="image-20210519160030626" width=200 />
+
+`background-size` - https://developer.mozilla.org/en-US/docs/Web/CSS/background-size
+
+### Shorthand & Demo
+
+`background` - https://developer.mozilla.org/en-US/docs/Web/CSS/background
+
+recommendation - **don't use!** - too complicated!
+
+### Border Color, Style & Width
+
+`border-color` - https://developer.mozilla.org/en-US/docs/Web/CSS/border-color
+
+`border-style` - https://developer.mozilla.org/en-US/docs/Web/CSS/border-style
+
+`border-width` - https://developer.mozilla.org/en-US/docs/Web/CSS/border-width
+
+`border` shorthand - https://developer.mozilla.org/en-US/docs/Web/CSS/border
+
+### Border Radius & Border Image
+
+`border-radius` - https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
+
+some more examples: https://estelle.github.io/cssmastery/borders/#slide44
+
+`border-image` - https://developer.mozilla.org/en-US/docs/Web/CSS/border-image
+
+```css
+border-image: source || slice / width / outset || repeat;
+```
+
+some more examples: https://estelle.github.io/cssmastery/borders/#slide51
+
+### Gradient Demos & Overview
+
+https://frontendmasters.com/courses/css-in-depth-v2/gradient-demos-overview/
 
 
 
 
-https://frontendmasters.com/courses/css-in-depth-v2/background-properties-color/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
