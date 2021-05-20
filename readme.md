@@ -578,7 +578,7 @@ https://css4-selectors.com/selector/css4/time-dimensional-pseudo-class/ (again, 
 
 ### Specificity 
 
-<img src="img/readme.md" alt="specifishity chart" width=600 />
+<img src="img/specifishity.png" alt="specifishity" width=600 />
 
 Try to avoid **div**itis and **ID**itis (hence the shark as it isn't as cute as the plankton or fish)
 
