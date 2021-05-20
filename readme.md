@@ -4,7 +4,112 @@ Slides: https://estelle.github.io/cssmastery/#slide1
 
 The MDN Web Docs for CSS are gold:  https://developer.mozilla.org/en-US/docs/Web/CSS
 
-### Intro
+---
+
+- [Introduction](#introduction)
+  * [CSS Introduction & Setup](#css-introduction--setup)
+- [Selectors](#selectors)
+  * [Basic Selectors & CSS Levels](#basic-selectors--css-levels)
+  * [Specificity Introduction](#specificity-introduction)
+  * [Relational Selectors & Combinators](#relational-selectors--combinators)
+  * [Attribute Selectors](#attribute-selectors)
+  * [Attribute Selectors Recap](#attribute-selectors-recap)
+  * [User Interface Selectors](#user-interface-selectors)
+  * [Structural Selectors](#structural-selectors)
+  * [nth-of-type Structural Selectors](#nth-of-type-structural-selectors)
+  * [Structural Selectors Demo](#structural-selectors-demo)
+  * [Root, Empty & Blank](#root-empty--blank)
+  * [Negation, Matching & Parent](#negation-matching--parent)
+  * [Linguistic Pseudo Classes](#linguistic-pseudo-classes)
+  * [Link, Locations & User Action](#link-locations--user-action)
+  * [Specificity](#specificity)
+- [Pseudo-Elements](#pseudo-elements)
+  * [Introduction to Pseudo-Elements](#introduction-to-pseudo-elements)
+  * [Before, After and Generated Content](#before-after-and-generated-content)
+  * [Selection & More Pseudo-elements](#selection--more-pseudo-elements)
+- [Generated Content](#generated-content)
+  * [Before and After](#before-and-after)
+  * [Counters](#counters)
+  * [Quotes & Attributes](#quotes--attributes)
+  * [Counters Review](#counters-review)
+  * [Images](#images)
+  * [Strings & Special Characters](#strings--special-characters)
+  * [Icon Accessibility](#icon-accessibility)
+  * [Design Elements](#design-elements)
+- [Media Queries](#media-queries)
+  * [Media Type, Screen Size & Resolution](#media-type-screen-size--resolution)
+  * [Syntax & Punctuation](#syntax--punctuation)
+  * [Browser Capability @supports](#browser-capability-supports)
+  * [Use Cases: Hyphenations](#use-cases-hyphenations)
+  * [Use Cases: Columns](#use-cases-columns)
+  * [Use Cases: SVG](#use-cases-svg)
+- [Colours & Appearance](#colours--appearance)
+  * [Colours: RGB, HSL & HEX](#colours-rgb-hsl--hex)
+  * [Opacity vs. Alpha Transparency](#opacity-vs-alpha-transparency)
+  * [Appearance](#appearance)
+- [Flexbox](#flexbox)
+  * [Goal of Flexbox & Demos](#goal-of-flexbox--demos)
+  * [Browser Support and Overview](#browser-support-and-overview)
+  * [Setup Flex Container and Items](#setup-flex-container-and-items)
+  * [Understanding Flexbox](#understanding-flexbox)
+  * [Flex Container Properties](#flex-container-properties)
+  * [Flex Item Properties](#flex-item-properties)
+  * [Flexibility & Shorthand](#flexibility--shorthand)
+- [Tables](#tables)
+  * [Overview & Semantics](#overview--semantics)
+  * [Caption](#caption)
+  * [Table Borders & Spacing](#table-borders--spacing)
+  * [Other Table Properties](#other-table-properties)
+  * [Styling a Table](#styling-a-table)
+- [Grid](#grid)
+  * [Flexbox vs. Grid](#flexbox-vs-grid)
+  * [Display Property](#display-property)
+  * [Columns & Rows](#columns--rows)
+  * [Fraction Unit & Repeat Notation](#fraction-unit--repeat-notation)
+  * [Adding Gutters & Exercise](#adding-gutters--exercise)
+  * [Exercise Walkthrough](#exercise-walkthrough)
+  * [Positioning Grid Items](#positioning-grid-items)
+  * [Grid Column & Row Naming](#grid-column--row-naming)
+  * [Item Properties & Holy Grail Layout](#item-properties--holy-grail-layout)
+  * [Coding the Holy Grail Layout](#coding-the-holy-grail-layout)
+  * [Named Template Areas](#named-template-areas)
+  * [Align and Justify Items](#align-and-justify-items)
+  * [Align and Justify Content](#align-and-justify-content)
+  * [Tracking Sizing & Auto Flow](#tracking-sizing--auto-flow)
+  * [More Grid Resources](#more-grid-resources)
+  * [Grid Dev Tools](#grid-dev-tools)
+- [Backgrounds & Borders](#backgrounds--borders)
+  * [Background Properties & Color](#background-properties--color)
+  * [Background Image](#background-image)
+  * [Background Image Future](#background-image-future)
+  * [Repeat, Attachment & Position](#repeat-attachment--position)
+  * [Clip, Origin & Size](#clip-origin--size)
+  * [Shorthand & Demo](#shorthand--demo)
+  * [Border Color, Style & Width](#border-color-style--width)
+  * [Border Radius & Border Image](#border-radius--border-image)
+- [Transforms](#transforms)
+  * [Transform Overview](#transform-overview)
+  * [2D Transform Functions](#2d-transform-functions)
+  * [Function & Transform Order](#function--transform-order)
+  * [3D Transform Functions & Properties](#3d-transform-functions--properties)
+- [Transitions](#transitions)
+  * [Overview & Transition Properties](#overview--transition-properties)
+  * [Animatable Properties](#animatable-properties)
+  * [Events & Transition Examples](#events--transition-examples)
+- [Other Features](#other-features)
+  * [CSS Columns (revisited)](#css-columns-revisited)
+  * [Box Sizing](#box-sizing)
+  * [Shaders & Blend Modes](#shaders--blend-modes)
+  * [CSS Shapes](#css-shapes)
+  * [Fonts, Icons & Subsetting](#fonts-icons--subsetting)
+  * [CSS as the Solution](#css-as-the-solution)
+  * [Cursors](#cursors)
+  * [Text Overflow, Word Wrap & Calc](#text-overflow-word-wrap--calc)
+  * [rem & Viewport Width](#rem--viewport-width)
+  * [Pointer Events & Content Editable](#pointer-events--content-editable)
+  * [Sass](#sass)
+
+## Introduction
 
 https://estelle.github.io/cssmastery/intro/index.html#slide1
 
@@ -21,7 +126,7 @@ https://estelle.github.io/cssmastery/intro/index.html#slide1
 - text-shadow
 - fonts
 
-### CSS Intro
+### CSS Introduction & Setup
 
 **C**ascading **S**tyle **S**heets — the presentation layer of the web
 
@@ -64,6 +169,8 @@ Several ways to include CSS:
 - interchangeable presentation layer
 
 most importantly: **it decouples content from presentation**
+
+## Selectors
 
 ### Basic Selectors & CSS Levels
 
@@ -512,6 +619,8 @@ li {
 }
 ```
 
+## Pseudo-Elements
+
 ### Introduction to Pseudo-Elements
 
 ```css
@@ -610,6 +719,8 @@ e.g.
 ```
 
 If you want to find out what's going on behind the scenes in your browser, the dev tools (f12) will reveal all.
+
+## Generated Content
 
 ### Before and After
 
@@ -725,6 +836,8 @@ Thought bubbles example
 see this for more: https://css-tricks.com/the-shapes-of-css/
 
 and more ... https://estelle.github.io/cssmastery/generated/#slide38
+
+## Media Queries
 
 ### Media Type, Screen Size & Resolution
 
@@ -870,6 +983,8 @@ With SVGs, the width is the width **of the container** of the SVG.
 
 https://estelle.github.io/cssmastery/media/files/circlesvg.html
 
+## Colours & Appearance
+
 ### Colours: RGB, HSL & HEX
 
 These are all the same:
@@ -909,6 +1024,8 @@ https://estelle.github.io/cssmastery/colors/#slide16
 ### Appearance
 
 Best to use native features. People expect stuff to look the same across the internet. For example, a radio button should act like a radio button. If you must play, use `-webkit-appearance` - https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
+
+## Flexbox
 
 ### Goal of Flexbox & Demos
 
@@ -1102,6 +1219,8 @@ useful for sorting out niggles - e.g. https://estelle.github.io/cssmastery/flexb
 
 `flex-basis` demos: [1](https://estelle.github.io/cssmastery/flexbox/#slide60), [2](https://estelle.github.io/cssmastery/flexbox/#slide61)
 
+## Tables
+
 ### Overview & Semantics
 
 https://estelle.github.io/cssmastery/tables/#slide1
@@ -1242,7 +1361,9 @@ tbody tr:hover {background-color: lightblue;}
 
 <img src="img/image-20210517112438446.png" alt="image-20210517112438446" width=600 />
 
-### Flexbox vs. Grids
+## Grid
+
+### Flexbox vs. Grid
 
 https://estelle.github.io/cssmastery/grid/#slide1
 
@@ -1581,6 +1702,8 @@ As for Flexbox, your browser's devtools will let you inspect and see what's goin
 
 <img src="img/image-20210518115033242.png" alt="image-20210518115033242" width=1000 />
 
+## Backgrounds & Borders
+
 ### Background Properties & Color
 
 https://estelle.github.io/cssmastery/borders/#slide1
@@ -1681,10 +1804,6 @@ border-image: source || slice / width / outset || repeat;
 ```
 
 some more examples: https://estelle.github.io/cssmastery/borders/#slide51
-
-### Gradient Demos & Overview
-
-https://estelle.github.io/cssmastery/gradients/#slide1
 
 ## Transforms
 
@@ -1968,7 +2087,9 @@ http://css-infos.net/property/-webkit-user-modify
 
 ### Sass
 
-(s)
+(skipping)
+
+
 
 
 
