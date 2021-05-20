@@ -2,6 +2,8 @@ My notes from: https://frontendmasters.com/courses/css-in-depth-v2/
 
 Slides: https://estelle.github.io/cssmastery/#slide1
 
+The MDN Web Docs for CSS are gold:  https://developer.mozilla.org/en-US/docs/Web/CSS
+
 ### Intro
 
 https://estelle.github.io/cssmastery/intro/index.html#slide1
@@ -1682,7 +1684,297 @@ some more examples: https://estelle.github.io/cssmastery/borders/#slide51
 
 ### Gradient Demos & Overview
 
-https://frontendmasters.com/courses/css-in-depth-v2/gradient-demos-overview/
+https://estelle.github.io/cssmastery/gradients/#slide1
+
+## Transforms
+
+https://estelle.github.io/cssmastery/transforms/#slide1
+
+### Transform Overview
+
+`transform` - https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+
+Very well supported - https://caniuse.com/?search=2D%20transforms
+
+### 2D Transform Functions
+
+`translate` - https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate()
+
+e.g. https://estelle.github.io/cssmastery/transforms/#slide6
+
+```css
+transform: translate(100px, 100px);
+transform: translateX(-90px);
+transform: translateY(-90px);
+```
+
+---
+
+`rotate` - https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate()
+
+e.g. https://estelle.github.io/cssmastery/transforms/#slide7
+
+```css
+transform: rotate(90deg);
+```
+
+[rotateX](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX())
+
+[rotateY](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY())
+
+[rotateZ](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ()) = `rotate` (default around Z-axis - the one perpendicular to the screen)
+
+---
+
+`scale` - https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale()
+
+[scaleX](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleX()), [scaleY](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleY()), [scaleZ](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleZ())
+
+---
+
+`skew` - https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew() - skews X and Y at same time
+
+[skewX](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewX()), [skewY](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewY()) - does one after the other
+
+---
+
+### Function & Transform Order
+
+e.g. https://estelle.github.io/cssmastery/transforms/#slide10
+
+```css
+transform: translate(-80px 100px) rotate(-15deg) scale(2, 1.5) skewX(8deg); 
+/* performed in order */
+```
+
+The order of transform functions matters. e.g. if you rotate first, your translate direction will be on the rotated axis!
+
+try it out: https://estelle.github.io/cssmastery/transforms/#slide14
+
+### 3D Transform Functions & Properties 
+
+(cool, but skipping for now)
+
+## Transitions
+
+https://estelle.github.io/cssmastery/animations/#slide1
+
+### Overview & Transition Properties
+
+Simple example:
+
+```css
+a {
+    color: green;
+    transition: 1s;
+}
+a:hover {
+    color: orange;
+}
+```
+
+(but don't do this!)
+
+`transition` - https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+
+We can use `transition` with `transform`: https://estelle.github.io/cssmastery/animations/#slide8
+
+```css
+code {
+   transition:
+      transform 2s ease-in 50ms;
+}
+```
+
+### Animatable Properties
+
+What can be `transition`ed? 
+
+:arrow_right: anything that has intermediate values.
+
+e.g. opacity: [0, 0.5, 1] :heavy_check_mark: // display: [block, none] :x:
+
+try it out: https://estelle.github.io/cssmastery/animations/#slide14
+
+```css
+input:valid {
+    background-color: green;
+    transition: 1s linear;
+}
+input:invalid {
+    background-color: red;
+    transition: 3s steps(5, end);
+}
+input:focus {   
+    background-color: yellow;
+    transition: 1s linear;
+}
+```
+
+Limited ways to initiate a transition + we can't force them to finish early.
+
+### Events & Transition Examples
+
+Every transition throws an *event* - `transitioned`
+
+Making a navbar in CSS: https://estelle.github.io/cssmastery/animations/#slide19
+
+```css
+nav ul li {
+  list-style-type: none;
+}
+nav > ul > li {
+  display: inline-block;
+  position:relative;
+}
+nav ul ul {
+  transform: scale(1,0);
+  transform-origin: top center;
+  transition:0.2s linear 50ms;
+  position:absolute;
+  top: 100%;
+}
+nav li:hover ul {
+  transform: scale(1,1);
+}
+```
+
+^ most people do this in JS!
+
+Another example - https://estelle.github.io/cssmastery/animations/#slide20
+
+^ the downside to `transition` on hover is you can't keep the object in a transitioned state (can you do it without on hover)?
+
+## Other Features
+
+https://estelle.github.io/cssmastery/other/#slide1
+
+### CSS Columns (revisited)
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/columns
+
+https://estelle.github.io/cssmastery/other/#slide3 
+
+^ the top margin looks ugly. 
+
+But we fix that easily: https://estelle.github.io/cssmastery/other/#slide4
+
+```css
+#content {columns: 12em 8; }
+h1, h2 {column-span: all;}
+p {margin: 0 0 20px}
+```
+
+### Box Sizing
+
+`box-sizing` - https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+
+### Shaders & Blend Modes
+
+We can do *art direction*.
+
+https://alteredqualia.com/css-shaders/article/ 
+
+SVG animation example - https://estelle.github.io/cssmastery/other/#slide8
+
+### CSS Shapes
+
+`clip-path` - https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
+
+`shape-outside` - https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside - e.g. flow the text around an image.
+
+^ Useful plugin for Chrome devtools - https://chrome.google.com/webstore/detail/css-shapes-editor/nenndldnbcncjmeacmnondmkkfedmgmp
+
+### Fonts, Icons & Subsetting
+
+What if you only want to include specific characters from a font family?
+
+You can subset them with tools like https://www.fontsquirrel.com/
+
+You can subset Google Fonts too: https://estelle.github.io/cssmastery/other/#slide19
+
+```html
+<link  rel="stylesheet" 
+href="//fonts.googleapis.com/
+css?family=Rye:regular&text=AEIOUaeiou">
+```
+
+### CSS as the Solution
+
+Sometimes you can replace an entire library with a CSS solution.
+
+e.g. masking form inputs http://estelle.github.io/input-masking/indexcss.html
+
+```css
+/* additional styles */
+li {line-height: 2; clear: both;}
+label {display: inline-block; width: 200px;}
+.shell span {color: magenta;}
+li {font-family: helvetica; font-size: 0.93rem;} 
+```
+
+<img src="img/image-20210520112405882.png" alt="image-20210520112405882" width=400 />
+
+^ There are libraries to do this, but we can also use CSS!
+
+e.g. carousel without JS - http://estelle.github.io/merry-go-round/
+
+(the only there is is to switch classes on the parent)
+
+### Cursors
+
+https://estelle.github.io/cssmastery/other/#slide26 
+
+### Text Overflow, Word Wrap & Calc
+
+https://estelle.github.io/cssmastery/other/#slide27
+
+`calc` e.g.
+
+```css
+.colB {
+	width: calc(50% - 1em);
+}
+```
+
+### rem & Viewport Width
+
+relative `em` unit. 
+
+`em` inherits from its parent, which leads to weird sizing by accident. `rem` takes care of that.
+
+viewport width - https://estelle.github.io/cssmastery/other/#slide31
+
+```
+5vw = 5% of the width of the viewport
+7vh = 7% of the height of the viewport
+4vmin = 4% of the viewport height or width, whichever is smaller
+8vmax = 8% of the viewport height or width, whichever is larger
+```
+
+### Pointer Events & Content Editable
+
+```css
+.animatedElement {
+    pointer-events: none;
+}
+```
+
+clicks through an element so we can't select it (e.g. an animation)
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/contentEditable
+
+http://css-infos.net/property/-webkit-user-modify
+
+### Sass
+
+(s)
+
+
+
+
+
+
 
 
 
